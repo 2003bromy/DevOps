@@ -1,5 +1,6 @@
 Network HomeWork
 
+
 1. Devide CIDR 192.168.4.0/24 to 8 subnets:
 192.168.4.0/27
 192.168.4.32/27
