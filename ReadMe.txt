@@ -17,7 +17,21 @@ Network HomeWork
 	d.Server sends the content (HTML , images etc ) to the web browser 
 	e.The browser processes the content and displays it to the user
 
-3. 
-
-
+3. Question with subnet masks table :
+Subnet mask		Class 
+255.255.255.252 	D
+255.255.255.248		D
+255.255.255.240 	D
+255.255.255.224		D
+255.255.255.192		D
+255.255.255.128		D
+255.255.255.0		C
+255.255.254.0		C
+255.255.252.0		C
+255.255.248.0		C
+255.255.240.0		C
+255.255.224.0		C
+255.255.192.0		C
+255.255.128.0		C
+255.255.0.0		B
 
