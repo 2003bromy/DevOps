@@ -1,26 +1,26 @@
 pipeline {
-    agent {any}
+    agent any
 
     stages {
          stage('cleanWs') {
             steps {
                 echo 'cleanWS'
-                clean workspace before init
+                //clean workspace before init
                 cleanWs()
             }
         }
         stage('GitInit') {
             steps {
                 echo 'GitInit'
-                git branch 'main', url 'httpsgithub.comElad0109simple-webapp-nodejs-'
+                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-'
             }
         }
         stage('build') {
             steps {
                 echo 'build'
                nodejs('nodejs') {
-                    run build
-                    sh npm  install
+                    //run build
+                    sh 'npm install'
                 }
             }
         }
@@ -28,8 +28,8 @@ pipeline {
             steps {
                 echo 'test'
                 nodejs('nodejs') {
-                    run test
-                    sh npm  run test
+                    //run test
+                    sh 'npm  run test'
                 }
                
             }
@@ -38,8 +38,8 @@ pipeline {
             steps {
                 echo 'display'
                 nodejs('nodejs') {
-                    run diply
-                    sh npm  run start
+                    //run diply
+                    sh 'npm  run start'
                 }
                
             }
@@ -47,3 +47,4 @@ pipeline {
         
     }
 }
+
