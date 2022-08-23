@@ -1,49 +1,43 @@
 pipeline {
-    agent {label docker}
+    agent {label 'docker'}
 
     stages {
-         stage('cleanWs') {
+        stage('initws') {
             steps {
-                echo 'cleanWS'
-                clean workspace before init
+                //Clean workspace before init
                 cleanWs()
+                echo 'Clean workspace finished'
             }
         }
-        stage('GitInit') {
+        stage('gitinit') {
             steps {
-                echo 'GitInit'
-                git branch 'main', url 'httpsgithub.comElad0109simple-webapp-nodejs-'
+                echo 'Git Init stage Running'
+                git branch: 'main', url: 'https://github.com/Elad0109/simple-webapp-nodejs-'
             }
         }
+        
         stage('build') {
             steps {
-                echo 'build'
-               nodejs('nodejs') {
-                    run build
-                    sh npm  install
-                }
+                echo 'BUild is running'
+                nodejs('nodejs18') {
+    // run build 
+    sh "npm install"
+}
             }
         }
         stage('test') {
             steps {
-                echo 'test'
-                nodejs('nodejs') {
-                    run test
-                    sh npm  run test
-                }
-               
+                echo 'TEST'
+                nodejs('nodejs18') {
+                    // run test 
+    sh "npm run test"
+}
             }
         }
-         stage('display') {
+        stage('deploy') {
             steps {
-                echo 'display'
-                nodejs('nodejs') {
-                    run diply
-                    sh npm  run start
-                }
-               
+                echo 'deploy'
             }
         }
-        
     }
 }
